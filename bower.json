@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "homepage": "https://github.com/codexhackathon/htmlbook-style-editor",
   "authors": [
-    "Seth Woodworth <seth@sethish.com>"
+    {"name": "Seth Woodworth", "email": "<seth@sethish.com>"},
+    {"name": "Nellie McKesson", "email": "<nelliemckesson@gmail.com"}
   ],
   "license": "GPL",
   "private": true,
