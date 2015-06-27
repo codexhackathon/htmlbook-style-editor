@@ -1,0 +1,20 @@
+{
+  "name": "htmlbook-style-editor",
+  "version": "0.0.0",
+  "homepage": "https://github.com/codexhackathon/htmlbook-style-editor",
+  "authors": [
+    "Seth Woodworth <seth@sethish.com>"
+  ],
+  "license": "GPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic-ui": "~1.12.3"
+  }
+}
