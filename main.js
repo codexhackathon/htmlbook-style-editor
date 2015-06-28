@@ -46,7 +46,8 @@ $(function() {
   loadBook(1);
 
   $('#book-select').on('change', function() {
-    var index = $('#book-select').val() * 1;
+    var index = $('#book-select-dropdown').val() * 1;
+    console.log(index);
     loadBook(index);
   });
 
