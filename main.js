@@ -6,7 +6,7 @@ $(function() {
 
     editor.commands.addCommand({
       name: 'Apply style to iframe',
-      bindKey: {win: 'Ctrl-s',  Mac: 'Command-s'},
+      bindKey: {win: 'Ctrl-s',  Mac: 'Ctrl-s'},
       exec: function(editor){applyStyle(editor)},
       readOnly: true // false if this command should not apply in readOnly mode
     });
