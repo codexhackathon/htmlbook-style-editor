@@ -1,5 +1,22 @@
 $(function() {
 
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/solarized_dark");
+    editor.getSession().setMode("ace/mode/css");
+
+    editor.commands.addCommand({
+      name: 'Apply style to iframe',
+      bindKey: {win: 'Ctrl-s',  Mac: 'Command-s'},
+      exec: function(editor){applyStyle(editor)},
+      readOnly: true // false if this command should not apply in readOnly mode
+    });
+
+    var applyStyle = function(editor) {
+      var style = editor.getValue();
+      $('iframe').contents().find('head').html('<style>' + style + '</style>');
+    }
+
+
   $('.selection.dropdown').dropdown('setting', 'transition', 'vertical flip');
 
   var books = [
@@ -8,6 +25,10 @@ $(function() {
     'examples/Moby-Dick.html',
     'examples/The_Time_Machine.html',
   ];
+
+  var styles = [
+    'styles/orly.css',
+    ];
 
   var loadBook = function(index) {
     $.ajax(books[index], {
@@ -29,15 +50,24 @@ $(function() {
   });
 
 
-  $('style[contenteditable]').on('keypress', function(e) {
-
-    // ctrl-enter to apply style
-    if (e.which === 13 && e.ctrlKey) {
-      e.preventDefault();
-      var style = $('style[contenteditable]').text();
-      $('iframe').contents().find('head').html('<style>' + style + '</style>');
+  var loadStyle = function(index) {
+    $.ajax(styles[index], {
+      error: function(resp) {
+        console.log(resp);
+        alert("couldn't load style");
+    },
+    success: function(data) {
+      console.log("success");
+      editor.setValue(data);
     }
+  })}
 
+  $('#style-select').on('change', function() {
+    var index = $('#style-select').val() * 1;
+    console.log(index);
+    loadStyle(index);
   });
+
+
 
 });

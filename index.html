@@ -47,7 +47,7 @@
 </div>
 
 <div class="ui eight wide column">
-  <select class="ui selection dropdown">
+  <select class="ui selection dropdown" id='style-select'>
     <option value="">Choose a style</option>
     <option value="0">O'Reilly</option>
   </select>
@@ -75,27 +75,6 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-      $('style').each(function(i, block) {
-        hljs.highlightBlock(block);
-      });
-    });
-
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/css");
-
-    editor.commands.addCommand({
-      name: 'myCommand',
-      bindKey: {win: 'Ctrl-s',  Mac: 'Command-s'},
-      exec: function(editor){applyStyle(editor)},
-      readOnly: true // false if this command should not apply in readOnly mode
-    });
-
-    function applyStyle(editor) {
-      var style = editor.getValue();
-      $('iframe').contents().find('head').html('<style>' + style + '</style>');
-    }
 </script>
 </body>
 </html>
