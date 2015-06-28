@@ -40,14 +40,22 @@
 
 <div class="ui grid">
 <div class="four wide column"></div>
-<div class="eight wide column">
+
+<div class="eight wide column" id='htmlbookcontent'>
 
 </div>
 <div class="four wide column"></div>
 </div>
+
 <script>
+$.get('./examples/Frankenstein.html', function( data) {
+  $('#htmlbookcontent').html(data);
+});
+
+//$.change(
 
 
 </script>
+
 </body>
 </html>
