@@ -2,6 +2,7 @@
 <head>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/semantic-ui/dist/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.9/ace.js" type="text/javascript" charset="utf-8"></script>
 
   <script src="main.js"></script>
 
@@ -65,12 +66,25 @@
 </div>
 
 <script>
-$(document).ready(function() {
-  $('style').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+    $(document).ready(function() {
+      $('style').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
 
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/css");
+
+    editor.commands.addCommand({
+      name: 'myCommand',
+      bindKey: {win: 'Ctrl-s',  Mac: 'Command-s'},
+      exec: function(editor) {
+        var style = editor.getValue();
+        $('iframe').contents().find('head').html('<style>' + style + '</style>');
+      },
+      readOnly: true // false if this command should not apply in readOnly mode
+    });
+</script>
 </body>
 </html>
