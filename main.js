@@ -6,6 +6,7 @@ $(function() {
     'examples/Pride_and_Prejudice.html',
     'examples/Frankenstein.html',
     'examples/Moby-Dick.html',
+    'examples/The_Time_Machine.html',
   ];
 
   var loadBook = function(index) {
@@ -22,8 +23,8 @@ $(function() {
 
   loadBook(1);
 
-  $('select').on('change', function() {
-    var index = $('select').val() * 1;
+  $('#book-select').on('change', function() {
+    var index = $('#book-select').val() * 1;
     loadBook(index);
   });
 

@@ -46,12 +46,20 @@
 </h1>
 </div>
 
-<div class="right aligned sixteen wide column">
+<div class="ui eight wide column">
+  <select class="ui selection dropdown">
+    <option value="">Choose a style</option>
+    <option value="0">O'Reilly</option>
+  </select>
+</div>
+
+<div class="right aligned eight wide column" id='book-select'>
 <select class="ui selection dropdown">
   <option value="">Choose a Book...</option>
   <option value="1">Frankenstein</option>
   <option value="0">Pride and Prejudice</option>
   <option value="2">Moby Dick</option>
+  <option value="3">The Time Machine</option>
 </select>
 </div>
 
@@ -80,12 +88,14 @@
     editor.commands.addCommand({
       name: 'myCommand',
       bindKey: {win: 'Ctrl-s',  Mac: 'Command-s'},
-      exec: function(editor) {
-        var style = editor.getValue();
-        $('iframe').contents().find('head').html('<style>' + style + '</style>');
-      },
+      exec: function(editor){applyStyle(editor)},
       readOnly: true // false if this command should not apply in readOnly mode
     });
+
+    function applyStyle(editor) {
+      var style = editor.getValue();
+      $('iframe').contents().find('head').html('<style>' + style + '</style>');
+    }
 </script>
 </body>
 </html>
