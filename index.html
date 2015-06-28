@@ -45,25 +45,32 @@
 </h1>
 </div>
 
-<div class="eight wide column">
-  <div class="ui hidden divider"></div>
-  <style contenteditable id="editor">
-  </style>
-</div>
-
-<div class="eight wide column">
 <div class="right aligned sixteen wide column">
-  <select class="ui selection dropdown">
+<select class="ui selection dropdown">
   <option value="">Choose a Book...</option>
   <option value="1">Frankenstein</option>
   <option value="0">Pride and Prejudice</option>
 </select>
 </div>
 
+<div class="eight wide column">
+  <style contenteditable id="editor">
+  </style>
+</div>
+
+<div class="eight wide column">
 <iframe id="html-book-content">
 </iframe>
 </div>
 </div>
+
+<script>
+$(document).ready(function() {
+  $('style').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 </body>
 </html>
