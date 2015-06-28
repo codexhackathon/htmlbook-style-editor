@@ -1,0 +1,11 @@
+body {
+  background: green;
+}
+style {
+  height: 98vh;
+}
+iframe#html-book-content {
+  width: 100%;
+  height: 98vh;
+}
+

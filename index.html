@@ -2,7 +2,11 @@
 <head>
   <script src="bower_components/semantic-ui/dist/semantic.min.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+  <script src="main.js"></script>
+
   <link href="bower_components/semantic-ui/dist/semantic.css" rel="stylesheet" type="text/css">
+  <link href="main.css" rel="stylesheet" type="text/css">
   <style>
     body style {
       display: block;
@@ -34,10 +38,6 @@
 
   <h1>HTMLBook Style Editor</h1>
   <style contenteditable>
-    body {
-      background: green;
-    }
-</style>
 </style>
 </div>
 
@@ -50,23 +50,10 @@
 </select>
 </div>
 
-<div class="sixteen wide column" id='htmlbookcontent'>
-TEST
+<iframe id="html-book-content">
+</iframe>
 </div>
 </div>
-</div>
-
-<script>
-$.get('./examples/Frankenstein.html', function( data) {
-  $('#htmlbookcontent').html(data);
-});
-
-//$.change(
-$('.ui.dropdown')
-  .dropdown()
-;
-
-</script>
 
 </body>
 </html>
