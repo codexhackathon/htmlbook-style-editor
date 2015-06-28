@@ -1,5 +1,8 @@
 $(function() {
 
+  $('.selection.dropdown')
+    .dropdown('setting', 'transition', 'vertical flip');
+
   $('').on('change', function() {
 
     $.get('./examples/Frankenstein.html', {
