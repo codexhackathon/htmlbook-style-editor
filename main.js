@@ -6,13 +6,14 @@ $(function() {
 
     editor.commands.addCommand({
       name: 'Apply style to iframe',
-      bindKey: {win: 'Ctrl-s',  Mac: 'Command-M'},
+      bindKey: {win: 'Ctrl-s',  mac: 'Command-M'},
       exec: function(editor){applyStyle(editor)},
       readOnly: true // false if this command should not apply in readOnly mode
     });
 
     var applyStyle = function(editor) {
       var style = editor.getValue();
+      console.log('hit it');
       $('iframe').contents().find('head').html('<style>' + style + '</style>');
     }
 
