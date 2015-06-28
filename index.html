@@ -1,8 +1,8 @@
 <html>
 <head>
-  <script src="/bower_components/semantic-ui/dist/semantic.min.js"></script>
-  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-  <link href="/bower_components/semantic-ui/dist/semantic.css" rel="stylesheet" type="text/css">
+  <script src="bower_components/semantic-ui/dist/semantic.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <link href="bower_components/semantic-ui/dist/semantic.css" rel="stylesheet" type="text/css">
   <style>
     body style {
       display: block;
@@ -29,22 +29,31 @@
   </div>
 </div>
 
+<div class="ui grid">
+<div class="eight wide column">
+
   <h1>HTMLBook Style Editor</h1>
   <style contenteditable>
     body {
       background: green;
     }
 </style>
-
-<div class="ui hidden divider"></div>
-
-<div class="ui grid">
-<div class="four wide column"></div>
-
-<div class="eight wide column" id='htmlbookcontent'>
-
+</style>
 </div>
-<div class="four wide column"></div>
+
+<div class="eight wide column">
+<div class="right aligned sixteen wide column">
+  <select class="ui selection dropdown">
+  <option value="">Choose a Book...</option>
+  <option value="1">Frankenstein</option>
+  <option value="0">Pride and Prejudice</option>
+</select>
+</div>
+
+<div class="sixteen wide column" id='htmlbookcontent'>
+TEST
+</div>
+</div>
 </div>
 
 <script>
@@ -53,7 +62,9 @@ $.get('./examples/Frankenstein.html', function( data) {
 });
 
 //$.change(
-
+$('.ui.dropdown')
+  .dropdown()
+;
 
 </script>
 
