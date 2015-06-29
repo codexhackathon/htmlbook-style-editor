@@ -1,21 +1,24 @@
 $(function() {
 
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/solarized_dark");
-    editor.getSession().setMode("ace/mode/css");
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/solarized_dark");
+  editor.getSession().setMode("ace/mode/css");
 
-    editor.commands.addCommand({
-      name: 'Apply style to iframe',
-      bindKey: {win: 'Ctrl-s',  mac: 'Command-Option-F'},
-      exec: function(editor){applyStyle(editor)},
-      readOnly: true // false if this command should not apply in readOnly mode
-    });
+  editor.commands.addCommand({
+    name: 'Apply style to iframe',
+    bindKey: {win: 'Ctrl-s',  mac: 'Command-Option-F'},
+    exec: function(editor){applyStyle(editor)},
+    readOnly: true // false if this command should not apply in readOnly mode
+  });
 
-    var applyStyle = function(editor) {
-      var style = editor.getValue();
-      console.log('hit it');
-      $('iframe').contents().find('head').html('<style>' + style + '</style>');
-    }
+  var applyStyle = function(editor) {
+    var style = editor.getValue();
+    console.log('hit it');
+    $('iframe').contents().find('head').html('<style>' + style + '</style>');
+  }
+
+
+  $('#apply').click(function() { applyStyle(editor) });
 
 
   $('.selection.dropdown').dropdown('setting', 'transition', 'vertical flip');
@@ -29,6 +32,7 @@ $(function() {
 
   var styles = [
     'styles/orly.css',
+    'styles/new_font.css',
     ];
 
   var loadBook = function(index) {
