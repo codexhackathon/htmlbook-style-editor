@@ -34,60 +34,143 @@
   </div>
 </div>-->
 
-<div class="ui stackable grid">
-
-<div class="center aligned sixteen wide column">
-<h1 class="ui icon header">
-  <i class="edit icon"></i>
-  <div class="content">
+<div class="ui menu">
+  <a class="item">
+    <h1> 
+      <i class="edit icon"></i>
+    </h1>
+  </a>
+  <div class="header item">
     HTMLBook Style Editor
-    <div class="sub header">Style HTMLBook, Save Your Styles.</div>
   </div>
-</h1>
-</div>
-
-<div class="ui four wide column">
-  <select class="ui selection dropdown" id='style-select'>
-    <option value="">Choose a style</option>
-    <option value="0">O'Reilly</option>
-    <option value="1">New Fonts</option>
-  </select>
-</div>
-
-<div class="ui two wide column">
-  <div class="ui button" id='apply'>
-    Apply
+  <div class="text item">
+    Style HTMLBook, Save Your Styles.
   </div>
-</div>
+  <div class="right menu">
+    <a class="item">
+      Source
+      <i class="github icon"></i>
+    </a>
 
-<div class="ui two wide column">
-  <div class="ui button" id='save'>
-    Save
+    <a class="item">
+      About
+      <i class="info circle icon"></i>
+    </a>
+
   </div>
 </div>
 
-<div class="right aligned eight wide column" id='book-select'>
-<select class="ui selection dropdown" id='book-select-dropdown'>
-  <option value="">Choose a Book...</option>
-  <option value="1">Frankenstein</option>
-  <option value="0">Pride and Prejudice</option>
-  <option value="2">Moby Dick</option>
-  <option value="3">The Time Machine</option>
-</select>
+<hr/>
+<div class="ui grid">
+
+
+<div class="ui eight wide column">
+
+  <div class="ui top attached menu">
+    <a class="ui dropdown item style">
+      <i class="dropdown icon"></i>
+      Load a style
+      <div class="menu" id='style-select'>
+        <div class="item" data-value="./styles/orly.css">O'Reilly</div>
+        <div class="item" data-value="./styles/new_font.css">Custom Fonts</div>
+      </div>
+    </a>
+
+    <!-- <div class="item"> -->
+    <!--   <div class="ui action input"> -->
+    <!--     <input type="text" placeholder="Load css from URL"> -->
+    <!--     <div class="ui button">Go</div> -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+    <div class="right menu">
+      <div class="ui item">
+        <div class="ui right labeled icon button" id='download'>
+          <i class="download icon"></i>
+          Download
+        </div>
+      </div>
+      <div class="ui item">
+        <div class="ui right labeled icon primary button" id='apply'>
+          <i class="right arrow icon"></i>
+          Apply
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui bottom attached segment">
+    <style contenteditable id="editor"></style>
+  </div>
+
 </div>
 
-<div class="eight wide column">
-  <style contenteditable id="editor">
-  </style>
+
+<div class="ui eight wide column">
+
+  <!-- <select class="ui fluid selection dropdown" id='book-select-dropdown'> -->
+  <!--   <option value="">Choose a Book...</option> -->
+  <!--   <option value="1">Frankenstein</option> -->
+  <!--   <option value="0">Pride and Prejudice</option> -->
+  <!--   <option value="2">Moby Dick</option> -->
+  <!--   <option value="3">The Time Machine</option> -->
+  <!-- </select> -->
+
+  <div class="ui top attached menu">
+    <a class="ui dropdown item bookselect">
+      <i class="dropdown icon"></i>
+      Load a book
+      <div class="menu" id='book-select'>
+        <div class="item" data-value='./examples/Pride_and_Prejudice.html'>Pride and Prejudice</div>
+        <div class="item" data-value="./examples/Frankenstein.html">Frankenstein</div>
+        <div class="item" data-value="./examples/Moby-Dick.html">Moby Dick</div>
+        <div class="item" data-value="./examples/The_Time_Machine.html">The Time Machine</div>
+      </div>
+    </a>
+
+    <!-- TODO: implement loading from url, js supports it -->
+    <!-- <div class="item"> -->
+    <!--   <div class="ui action input"> -->
+    <!--     <input type="text" placeholder="Load HTMLBook from URL"> -->
+    <!--     <div class="ui button">Go</div> -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+    <!-- TODO: implement styled htmlbook download -->
+    <!-- <div class="right menu"> -->
+    <!--   <div class="ui item"> -->
+    <!--     <div class="ui right labeled icon button" id='download'> -->
+    <!--       <i class="download icon"></i> -->
+    <!--       Download -->
+    <!--     </div> -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+  </div>
+
+  <div class="ui bottom attached section">
+    <iframe id="html-book-content"></iframe>
+  </div>
+
+
+
 </div>
 
-<div class="eight wide column">
-<iframe id="html-book-content">
-</iframe>
-</div>
 </div>
 
 <script>
 </script>
 </body>
 </html>
+
+
+
+<!-- <div class="center aligned sixteen wide column"> -->
+<!-- <h1 class="ui icon header"> -->
+<!--   <i class="edit icon"></i> -->
+<!--   <div class="content"> -->
+<!--     HTMLBook Style Editor -->
+<!--     <div class="sub header">Style HTMLBook, Save Your Styles.</div> -->
+<!--   </div> -->
+<!-- </h1> -->
+<!-- </div> -->
