@@ -21,8 +21,6 @@ $(function() {
   $('#apply').click(function() { applyStyle(editor) });
 
 
-  $('.selection.dropdown').dropdown('setting', 'transition', 'vertical flip');
-
   var books = [
     'examples/Pride_and_Prejudice.html',
     'examples/Frankenstein.html',
@@ -35,8 +33,8 @@ $(function() {
     'styles/new_font.css',
     ];
 
-  var loadBook = function(index) {
-    $.ajax(books[index], {
+  var loadBook = function(bookUrl) {
+    $.ajax(bookUrl, {
       error: function(response) {
         console.log(response);
         alert('couldn\'t load story');
@@ -47,17 +45,18 @@ $(function() {
     });
   };
 
-  loadBook(1);
+  loadBook(books[0]);
 
-  $('#book-select').on('change', function() {
-    var index = $('#book-select-dropdown').val() * 1;
-    console.log(index);
-    loadBook(index);
+  $('.ui.dropdown.bookselect').dropdown({
+    action: 'select',
+    onChange: function(text, value) {
+      loadBook(text);
+    }
   });
 
 
-  var loadStyle = function(index) {
-    $.ajax(styles[index], {
+  var loadStyle = function(styleUrl) {
+    $.ajax(styleUrl, {
       error: function(resp) {
         console.log(resp);
         alert("couldn't load style");
@@ -68,11 +67,12 @@ $(function() {
     }
   })}
 
-  $('#style-select').on('change', function() {
-    var index = $('#style-select').val() * 1;
-    console.log(index);
-    loadStyle(index);
+  $('.ui.dropdown.style').dropdown({
+    action: function(text, value) {
+      loadStyle(value);
+    }
   });
+
 
   function download(filename, text) {
     var pom = document.createElement('a');
@@ -89,7 +89,7 @@ $(function() {
     }
   }
 
-  $('#save').click(function() { download('style.css', editor.getValue())});
+  $('#download').click(function() { download('style.css', editor.getValue())});
   //onClick="javascriot: download('style.css', editor.getValue())"
 
 
